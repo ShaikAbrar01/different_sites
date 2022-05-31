@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     
     <title>Abrar</title>
     <style>
@@ -19,73 +23,98 @@
             
         }
         .card {
-          margin: 5px;
+          margin-top: 5px;
         }
         
 
     </style>
 </head>
 <body>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="news.html">News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="advice.html">Advices</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="joke.html">Jokes</a>
-        </li>
-        
-      </ul>
-      <div class="card">
-        <div class="card-body">
-          <div id = "ct6"></div>    
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Shaik Abrar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="news.html">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="advice.html">Advices</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="joke.html">Jokes</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="margin-top: 3px;">
+        <button type="button" class="btn btn-danger block" id="ct6_date" >Loading...</button>
+        <button type="button" class="btn btn-success block" id="ct6_time">Loading...</button>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <img src="news.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Latest News</h5>
+            <p class="card-text">Get the latest and reliable news content by clicking below...</p>
+            <a href="news.html" class="btn btn-success">Go to news section</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted updated_time">Last updated on: 31-05-2022</small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="advice.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Advices for you</h5>
+            <p class="card-text">Feeling demotivated??? <br> We have some great advices in store for you!!!</p>
+            <a href="advice.html" class="btn btn-success">Go to advices section</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted updated_time" >Last updated on: 31-05-2022</small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="joke.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Fun Zone</h5>
+            <p class="card-text">Sense of humor is a necessity... <br>
+              Ready for some dark humor?</p>
+              <a href="joke.html" class="btn btn-success">Let's get some jokes</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted updated_time">Last updated on: 31-05-2022</small>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">RANDOM ADVICES</h5>
-              <p class="card-text">Get an advice for your day...</p>
-              <a href="advice.html" class="btn btn-primary">Get a random advice</a>
-            </div>
-          </div>
+      <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2022 Copyright:
+          <a class="text-reset fw-bold" href="index.html" style="text-decoration: none;">Shaik Mohammad Abrar</a>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">LATEST NEWS</h5>
-              <p class="card-text">Search for the latest news</p>
-              <a href="news.html" class="btn btn-primary">Check latest news</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">FUN POINT</h5>
-              <p class="card-text">Cheer up with few jokes</p>
-              <a href="joke.html" class="btn btn-primary">Check out the jokes</a>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- Copyright -->
+      </footer>
       
-    <script>
+    <script>  
     function display_ct6() {
       var x = new Date()
       var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
       hours = x.getHours( ) % 12;
       hours = hours ? hours : 12;
-      var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-      x1 = x1 + " <br> " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + " " + ampm;
-      document.getElementById('ct6').innerHTML = x1;
+      var x1=   x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+      var x2 =   hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + " " + ampm;
+      document.getElementById('ct6_date').innerHTML = "Date: " + x1;
+      document.getElementById('ct6_time').innerHTML = "Time: " + x2;
       display_c6();
        }
        function display_c6(){
@@ -93,7 +122,7 @@
       mytime=setTimeout('display_ct6()',refresh)
       }
       display_c6()
-      </script>
+    </script>
       
 </body>
 </html>
