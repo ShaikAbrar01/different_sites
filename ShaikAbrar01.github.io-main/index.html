@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <title>Abrar</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        .container {
+            margin: auto;
+            
+        }
+        .card {
+          margin: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="advice.html">Advices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="joke.html">Jokes</a>
+        </li>
+        
+      </ul>
+      <div class="card">
+        <div class="card-body">
+          <div id = "ct6"></div>    
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">RANDOM ADVICES</h5>
+              <p class="card-text">Get an advice for your day...</p>
+              <a href="advice.html" class="btn btn-primary">Get a random advice</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">LATEST NEWS</h5>
+              <p class="card-text">Search for the latest news</p>
+              <a href="news.html" class="btn btn-primary">Check latest news</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">FUN POINT</h5>
+              <p class="card-text">Cheer up with few jokes</p>
+              <a href="joke.html" class="btn btn-primary">Check out the jokes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <script>
+    function display_ct6() {
+      var x = new Date()
+      var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+      hours = x.getHours( ) % 12;
+      hours = hours ? hours : 12;
+      var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+      x1 = x1 + " <br> " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + " " + ampm;
+      document.getElementById('ct6').innerHTML = x1;
+      display_c6();
+       }
+       function display_c6(){
+      var refresh=1000; // Refresh rate in milli seconds
+      mytime=setTimeout('display_ct6()',refresh)
+      }
+      display_c6()
+      </script>
+      
+</body>
+</html>

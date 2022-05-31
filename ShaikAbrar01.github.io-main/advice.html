@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Random Advice</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .card {
+            margin: 15px 15px 0 15px;    
+        }
+        button {
+            margin: 2%;
+        }
+        h1 {
+            padding-top:5px; 
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="advice.html">Advices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="joke.html">Jokes</a>
+        </li>
+      </ul>
+    <h1>Random Advice</h1>
+    <button type="button" class="btn btn-success" onclick="show()">Click here to get Advice</button>
+
+    
+    <div class="card">
+        <div class="card-header">
+          Advice
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p id="advice">Be Open To Advice From Anyone... But Never Act On Advice Blindly...</p>
+          </blockquote>
+        </div>
+      </div>
+    <script>
+        var id = 1
+        function show() {
+            var id_str = id.toString()
+            var url = new URL("https://api.adviceslip.com/advice?id=1")
+            console.log(url)
+            url.searchParams.set('id',id_str)
+            $.getJSON(url,function(data) {
+                $('#advice').text(data.slip.advice)
+            })
+            id += 1;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    
+    <title>Top News</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .input-group {
+            padding-left:10%;
+            padding-right:10%;
+        }
+        .card {
+            margin-top: 1%;
+        }
+        .text-muted {
+            float: right;
+        }
+        a {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="advice.html">Advices</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="joke.html">Jokes</a>
+          </li>
+      </ul>
+    <h1>Top News</h1>
+    
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter a keyword to search" aria-label="Enter a keyword to search" aria-describedby="button-addon2" id="history">
+        <button class="btn btn-outline-secondary btn-info" type="button" id="button-addon2" onclick="historicalNews()" style = "color: white;">Search</button>
+      </div>
+      
+    <!-- <button onclick="historicalNews()" class = "btn btn-info">Get Historical News</button> -->
+    <button type="button" onclick="historicalNews()" class = "btn btn-info">Click here to get Latest News</button>
+    <div class="container" id = "news">
+
+    </div>
+    
+    <script>
+        
+        function historicalNews(val) {
+            document.getElementById("news").innerHTML = "";
+            var kw = document.getElementById("history").value;
+            if(val === '') {
+                kw = 'latest news';
+            }
+            var keyword = kw.toString();
+            var url = new URL('https://api.currentsapi.services/v1/search?' +
+            'keywords=India&language=en&' + 
+            'apiKey=_YhHA3fWhw-Oe0Q7sFhNrqtcPXsJGhyRhV7ECf49fYhDu3Cr');
+            url.searchParams.set('keywords', keyword);
+
+
+            var req = new Request(url);
+            var div_elem = document.getElementById('news');
+
+            fetch(req)
+                .then(response => response.json())
+                .then(data => {
+                    for(const news of data.news) {
+                        console.log(news)
+                        var card_div = document.createElement("div");
+                        card_div.setAttribute('class','card');
+                        var element = document.createElement("div");
+                        element.setAttribute('class','card-body');
+                        var title_text = document.createTextNode(news.title)
+                        var title = document.createElement("h3");
+                        var main_div = document.getElementById('news');
+                        title.appendChild(title_text)
+                        var description = document.createElement("p")
+                        var des_text = document.createTextNode(news.description)
+                        description.appendChild(des_text);
+                        var url_elem = document.createElement("a");
+                        var url_data = document.createTextNode("Click here to read more...");
+                        url_elem.appendChild(url_data);
+                        url_elem.title = "Click here to read more...";
+                        url_elem.href = news.url;
+                        var pub_date = document.createElement("p")
+                        pub_date.setAttribute('class','text-muted')
+                        var ans = moment(news.published).format('DD/MM/YYYY');
+                        var dat = document.createTextNode("Article published on: "+ans);
+                        pub_date.appendChild(dat);
+                        element.appendChild(title);
+                        element.appendChild(description);
+                        element.appendChild(url_elem);
+                        element.appendChild(pub_date);
+                        card_div.appendChild(element);
+                        div_elem.appendChild(card_div);
+                    }
+                })
+        }
+        
+    </script>
+</body>
+</html>
