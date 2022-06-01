@@ -18,6 +18,7 @@
     <style>
         body {
             text-align: center;
+            
         }
         .input-group {
             padding-left:10%;
@@ -55,7 +56,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="joke.html">Jokes</a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="contests.html">Contests</a>
+              </li>
             </ul>
             
           </div>
@@ -105,8 +108,9 @@
             fetch(req)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     for(const news of data.news) {
-                        console.log(news)
+                        // console.log(news)
                         var card_div = document.createElement("div");
                         card_div.setAttribute('class','card');
                         var element = document.createElement("div");
